@@ -5,7 +5,7 @@ CREATE TABLE Pessoa (
     nome VARCHAR(150) UNIQUE NOT NULL,
     data_nasc DATE NOT NULL,
     endereco VARCHAR(300) NOT NULL, -- Endereço contendo: cep, rua, número e complemento
-    telefone VARCHAR(15)
+    telefone VARCHAR(15) NULL
 );
 
 -- Tabela Paciente: Contém os dados específico das pessoas que são pacientes.
