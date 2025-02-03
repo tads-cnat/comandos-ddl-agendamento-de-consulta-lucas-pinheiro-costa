@@ -45,32 +45,3 @@ CREATE TABLE Medico_Especialidade (
     id_especialidade INT REFERENCES Especialidade(id) ON DELETE CASCADE, -- Identificador da especialidade. Chave estrangeira referenciando o campo "identificador" na tabela "Especialidade".
     PRIMARY KEY (cpf_medico, id_especialidade)
 );
-
-
-
-
-
--- Testando no PostgreSQL database
--- Inserir uma Pessoa
-INSERT INTO Pessoa (cpf, nome, email, data_nascimento, endereco, telefone)
-VALUES ('12345678901', 'João Silva', 'joao@email.com', '1980-05-10', 'Rua A, 123', '99999-9999');
-
--- Inserir um Paciente associado a essa Pessoa
-INSERT INTO Paciente (cpf, senha, plano_saude)
-VALUES ('12345678901', 'senha123', TRUE);
-
--- Inserir um Médico associado a essa Pessoa
-INSERT INTO Medico (crm, cpf)
-VALUES (111, '12345678901');
-
--- Inserir uma Especialidade
-INSERT INTO Especialidade (descricao)
-VALUES ('Cardiologia');
-
--- Associar um médico à especialidade
-INSERT INTO Medico_Especialidade (crm, identificador)
-VALUES (111, 1);
-
--- Inserir um Agendamento
-INSERT INTO Agendamento (codigo_paciente, crm_medico, data_hora_consulta, valor_consulta)
-VALUES (1, 111, '2025-03-15 14:00:00', 100.00);
